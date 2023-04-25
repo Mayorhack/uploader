@@ -15,7 +15,7 @@ const Upload = () => {
         </div>
         <div className="w-full p-5">
           <div className="border-2 border-dashed rounded-3xl min-h-[200px]">
-            Click to browse or  drag and drop your files
+            Click to browse or drag and drop your files
           </div>
         </div>
       </form>
