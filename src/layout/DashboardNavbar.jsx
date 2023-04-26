@@ -25,20 +25,20 @@ const DashboardNavbar = () => {
         />
         <p>User Name</p>
         <div
-          className={`absolute translate-y-[-100%] bg-slate-50 shadow-md  transition-all duration-1000 ${
+          className={` hidden md:block absolute translate-y-[-100%] bg-white shadow-md min-w-[200px] transition-all duration-1000 ${
             menu ? "translate-y-[50%] opacity-100" : "opacity-0"
           }`}
         >
           <ul>
-            <li className="flex items-center gap-5 hover:bg-slate-300 px-4 py-2">
+            <li className="flex items-center gap-5 hover:bg-highlight hover:text-white  px-4 py-2">
               <FaUser />
               <Link href={"/profile"}>Profile</Link>
             </li>
-            <li className="flex items-center gap-5 hover:bg-slate-300 px-4  py-2">
+            <li className="flex items-center gap-5 hover:bg-highlight hover:text-white px-4  py-2">
               <AiFillSetting />
               Settings
             </li>
-            <li className="flex items-center gap-5 hover:bg-slate-300 px-4 py-2 text-red-500 mt-2">
+            <li className="flex items-center gap-5 hover:bg-red-400 hover:text-white px-4 py-2 text-red-500 mt-2">
               <HiOutlineLogout /> Log out
             </li>
           </ul>
