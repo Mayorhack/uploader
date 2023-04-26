@@ -1,20 +1,22 @@
 import Button from "@/components/Button";
 import FormInput from "@/components/forms/FormInput";
 import MyDatePicker from "@/components/forms/MyDatePicker";
+import uploadIcon from "@/assets/Upload icon.png";
+import Image from "next/image";
 
 const Upload = () => {
   return (
-    <div>
+    <div className="shadow-lg p-8 mt-8">
       <form action="" className="flex flex-col md:flex-row items-center">
         <div className="w-full p-5">
           <FormInput label={"Document Name"} />
-
+          <MyDatePicker />
           <FormInput label={"Staff Name"} />
           <FormInput label={"Email Address"} />
-          <MyDatePicker />
         </div>
-        <div className="w-full p-5">
-          <div className="border-2 border-dashed rounded-3xl min-h-[200px]">
+        <div className="w-full p-5 ">
+          <div className="border-2 border-dashed rounded-3xl min-h-[260px] flex justify-center items-center flex-col">
+            <Image src={uploadIcon} alt="upload icon" />
             Click to browse or drag and drop your files
           </div>
         </div>
