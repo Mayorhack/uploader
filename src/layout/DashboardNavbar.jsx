@@ -25,7 +25,7 @@ const DashboardNavbar = () => {
         />
         <p>User Name</p>
         <div
-          className={` hidden md:block absolute translate-y-[-100%] bg-white shadow-md min-w-[200px] transition-all duration-1000 ${
+          className={` hidden md:block absolute translate-y-[-100%] -translate-x-10 bg-white shadow-md min-w-[200px] transition-all  duration-1000 ${
             menu ? "translate-y-[50%] opacity-100" : "opacity-0"
           }`}
         >
