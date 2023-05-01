@@ -1,5 +1,5 @@
-import DashboardNavbar from "./DashboardNavbar";
-import Sidebar from "./Sidebar";
+import DashboardNavbar from './DashboardNavbar'
+import Sidebar from './Sidebar'
 
 const DashboardLayout = ({ children }) => {
   return (
@@ -10,7 +10,7 @@ const DashboardLayout = ({ children }) => {
         {children}
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default DashboardLayout;
+export default DashboardLayout

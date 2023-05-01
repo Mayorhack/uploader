@@ -1,14 +1,14 @@
-import Logo from "@/components/Logo";
-import { data } from "@/data/sidebardata";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { MdLogout } from "react-icons/md";
+import Logo from '@/components/Logo'
+import { data } from '@/data/sidebardata'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { MdLogout } from 'react-icons/md'
 
 const Sidebar = () => {
-  const router = useRouter();
+  const router = useRouter()
   return (
-    <div className="absolute md:relative bg-white left-0  p-4 shadow-lg min-h-screen min-w-[220px]">
-      <Logo className={"relative mb-10"} />
+    <div className="absolute md:relative bg-white left-0  p-4 shadow-md min-h-screen min-w-[220px]">
+      <Logo className={'relative mb-10'} />
       <div className="flex flex-col justify-between">
         <div>
           {data.map((item) => (
@@ -16,8 +16,8 @@ const Sidebar = () => {
               key={item.id}
               className={`my-4 flex px-4 py-2 gap-8 ${
                 router.pathname.includes(item.link)
-                  ? " bg-highlight rounded-md text-white"
-                  : ""
+                  ? ' bg-highlight rounded-md text-white'
+                  : ''
               }`}
               href={item.link}
             >
@@ -32,7 +32,7 @@ const Sidebar = () => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

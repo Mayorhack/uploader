@@ -1,18 +1,19 @@
-import Button from "@/components/Button";
-import FormInput from "@/components/forms/FormInput";
-import MyDatePicker from "@/components/forms/MyDatePicker";
-import uploadIcon from "@/assets/Upload icon.png";
-import Image from "next/image";
+import Button from '@/components/Button'
+import FormInput from '@/components/forms/FormInput'
+import MyDatePicker from '@/components/forms/MyDatePicker'
+import uploadIcon from '@/assets/Upload icon.png'
+import Image from 'next/image'
+import Card from '@/components/Card'
 
 const Upload = () => {
   return (
-    <div className="shadow-lg p-8 mt-8">
+    <Card className=" p-8 mt-8">
       <form action="" className="flex flex-col md:flex-row items-center">
-        <div className="w-full p-5">
-          <FormInput label={"Document Name"} />
+        <div className="w-full p-5 space-y-6">
+          <FormInput label={'Document Name'} />
           <MyDatePicker />
-          <FormInput label={"Staff Name"} />
-          <FormInput label={"Email Address"} />
+          <FormInput label={'Staff Name'} />
+          <FormInput label={'Email Address'} />
         </div>
         <div className="w-full p-5 ">
           <div className="border-2 border-dashed rounded-3xl min-h-[260px] flex justify-center items-center flex-col">
@@ -25,8 +26,8 @@ const Upload = () => {
         <Button variant="outlined">Cancel</Button>
         <Button>Upload</Button>
       </div>
-    </div>
-  );
-};
+    </Card>
+  )
+}
 
-export default Upload;
+export default Upload
