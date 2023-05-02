@@ -4,7 +4,7 @@ import MyDatePicker from "@/components/forms/MyDatePicker";
 import uploadIcon from "@/assets/Upload icon.png";
 import Image from "next/image";
 import Card from "@/components/Card";
-
+import { useState } from "react";
 const Upload = () => {
   const [startDate, setStartDate] = useState(new Date());
   return (
@@ -13,7 +13,7 @@ const Upload = () => {
         <div className="w-full p-5 space-y-6">
           <FormInput label={"Document Name"} />
           <MyDatePicker
-            startDate={startData}
+            startDate={startDate}
             onChange={() => setStartDate(new Date())}
           />
           <FormInput label={"Staff Name"} />
