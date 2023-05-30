@@ -1,9 +1,8 @@
 import DataTable from 'react-data-table-component'
 
 import { useMemo } from 'react'
-import { data } from '@/data/tableData'
 
-const Table = ({ columns }) => {
+const Table = ({ columns, onClick, setTableRow, data }) => {
   const customStyles = {
     header: {
       style: {},
@@ -38,7 +37,8 @@ const Table = ({ columns }) => {
   }
 
   const tableColumn = useMemo(() => {
-    return columns
+    return columns(onClick, (row) => setTableRow(row))
+    // eslint-disable-next-line
   }, [])
 
   return (

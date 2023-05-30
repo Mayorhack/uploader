@@ -8,7 +8,7 @@ const Modal = ({ children, onClick }) => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 300 }}
       transition={{ duration: 0.5, type: 'spring', ease: 'easeOut' }}
-      className=" max-w-[400px] bg-white rounded z-30 p-8 relative w-full"
+      className=" max-w-lg bg-white rounded z-30 p-8 relative w-full"
     >
       <p
         className="absolute right-0 -top-8 bg-[#E7E6E6] p-1 cursor-pointer hover:bg-red-400 hover:text-white rounded-full "

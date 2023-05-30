@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.disable::-webkit-scrollbar {
+  opacity: 0;
+}
+.disable-scroll {
+  overflow-y: hidden;
+}
 @layer base {
   h1,
   h2,

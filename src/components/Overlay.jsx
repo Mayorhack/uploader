@@ -17,7 +17,7 @@ const Overlay = ({ onClick, children, openState }) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.7, type: 'spring', ease: 'easeOut' }}
-          className={`min-w-screen min-h-screen w-screen h-screen absolute overflow-hidden inset-0 grid place-items-center z-10 ${
+          className={`min-w-screen min-h-screen w-screen h-screen absolute overflow-hidden inset-0 grid place-items-center z-10 p-1 ${
             children ? 'z-40' : ''
           }`}
         >

@@ -1,15 +1,19 @@
 import Link from 'next/link'
-import { FiCheck, FiDelete, FiDownload, FiFileText } from 'react-icons/fi'
+import { FiDownload, FiFileText, FiTrash2 } from 'react-icons/fi'
 
-const DocumentActions = ({ row }) => {
+const DocumentActions = ({ row, onClick, setTableRow }) => {
+  const handleClick = () => {
+    onClick()
+    setTableRow(row)
+  }
   return (
-    <div className="flex gap-3 items-center text-[#333]">
-      <Link href={`document/${row.id.toString()}`}>
+    <div className="flex gap-3 items-center text-[#333] cursor-pointer">
+      <Link href={`documents/${row.id.toString()}`}>
         <FiFileText size={'20px'} />
       </Link>
       <FiDownload size={'20px'} />
-      <FiCheck size={'20px'} />
-      <FiDelete size={'20px'} />
+
+      <FiTrash2 size={'20px'} onClick={handleClick} />
     </div>
   )
 }

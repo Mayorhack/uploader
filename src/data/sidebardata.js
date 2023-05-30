@@ -2,6 +2,7 @@ import { AiOutlineCloudUpload } from 'react-icons/ai'
 import { MdOutlineNotificationsActive } from 'react-icons/md'
 import { HiOutlineDocumentText } from 'react-icons/hi'
 import { BsFileEarmarkText } from 'react-icons/bs'
+import { FaUsers } from 'react-icons/fa'
 export const data = [
   {
     id: 0,
@@ -12,19 +13,19 @@ export const data = [
   {
     id: 1,
     title: 'Documents',
-    link: '/dashboard/document',
+    link: '/dashboard/documents',
     logo: <HiOutlineDocumentText size={24} />,
   },
   {
     id: 2,
     title: 'Reminder',
-    link: '/reminder',
+    link: '/dashboard/reminder',
     logo: <MdOutlineNotificationsActive size={24} />,
   },
   {
     id: 3,
     title: 'Biography',
-    link: '/biography',
+    link: '/dashboard/biographys',
     logo: <BsFileEarmarkText size={24} />,
   },
   {
@@ -32,5 +33,11 @@ export const data = [
     title: 'Profile',
     link: '/dashboard/profile',
     logo: <BsFileEarmarkText size={24} />,
+  },
+  {
+    id: 5,
+    title: 'Users',
+    link: '/dashboard/users',
+    logo: <FaUsers size={24} />,
   },
 ]

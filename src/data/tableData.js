@@ -1,26 +1,26 @@
 import DocumentActions from '@/components/DocumentActions'
 
-export const columns = [
+export const columns = (onClick, setTableRow) => [
   {
     name: 'Document Name',
-    selector: (row) => row.documentName,
+    selector: (row) => row.name,
     sortable: true,
-    cell: (row) => (
-      <p className=" text-base text-[#1a1a1ab8]">{row.documentName}</p>
-    ),
+    cell: (row) => <p className=" text-base text-[#1a1a1ab8]">{row.name}</p>,
   },
   {
     name: 'Document Type',
-    selector: (row) => row.documentType,
-    cell: (row) => (
-      <p className=" text-base text-[#1a1a1ab8]">{row.documentType}</p>
-    ),
+    selector: (row) => row.type,
+    cell: (row) => <p className=" text-base text-[#1a1a1ab8]">{row.type}</p>,
   },
   {
     name: 'Document Date',
-    selector: (row) => row.documentDate,
+    selector: (row) => row.creationDate,
     cell: (row) => (
-      <p className=" text-base text-[#1a1a1ab8]">{row.documentDate}</p>
+      <p className=" text-base text-[#1a1a1ab8]">
+        {`${new Date(row.creationDate).getDate()}-${
+          new Date(row.creationDate).getMonth() + 1
+        }-${new Date(row.creationDate).getFullYear()}`}
+      </p>
     ),
   },
   {
@@ -33,7 +33,13 @@ export const columns = [
     name: 'Actions',
     center: true,
     allowOverflow: true,
-    cell: (row) => <DocumentActions row={row} />,
+    cell: (row) => (
+      <DocumentActions
+        row={row}
+        onClick={onClick}
+        setTableRow={(row) => setTableRow(row)}
+      />
+    ),
   },
 ]
 
