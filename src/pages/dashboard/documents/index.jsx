@@ -4,18 +4,32 @@ import Overlay from '@/components/Overlay'
 import Table from '@/components/tables/Table'
 import { columns } from '@/data/tableData'
 import { publicFetch } from '@/utilities/fetchFunction'
+
 import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 import { FiTrash2 } from 'react-icons/fi'
-
+import useDelete from '@/hooks/useDelete'
 const Document = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false)
-  const [getTableRow, setGetTableRow] = useState('')
+  const [tableRow, setGetTableRow] = useState('')
   const { data } = useQuery(['documents'], () => {
     return publicFetch.request({
       url: 'dashboard/document/getall',
     })
   })
+
+  const deleteDocument = () => {
+    setShowDeleteModal(true)
+  }
+  const deleteMutation = useDelete(
+    `/Dashboard/Document/Delete?id=${tableRow.id}`,
+    'Document'
+  )
+
+  const confirmDelete = () => {
+    deleteMutation.mutate()
+    deleteMutation.isSuccess ? setShowDeleteModal(false) : null
+  }
 
   return (
     <div>
@@ -25,7 +39,7 @@ const Document = () => {
       <Card>
         <Table
           columns={columns}
-          onClick={() => setShowDeleteModal(true)}
+          onClick={deleteDocument}
           setTableRow={(row) => setGetTableRow(row)}
           data={data?.data || []}
         />
@@ -47,14 +61,19 @@ const Document = () => {
           </h4>
           <p>
             <span className="font-medium text-highlight mr-2">
-              {getTableRow.documentName}
+              {tableRow.name}
             </span>
             will be deleted permamently
             <br /> Are you sure?
           </p>
           <div className="flex gap-7 items-center justify-end">
             <Button variant="outlined">Cancel</Button>
-            <Button className={'bg-red-500 hover:bg-red-400'}>Delete</Button>
+            <Button
+              className={'bg-red-500 hover:bg-red-400'}
+              onClick={confirmDelete}
+            >
+              Delete
+            </Button>
           </div>
         </div>
       </Overlay>

@@ -1,4 +1,5 @@
 import DocumentActions from '@/components/DocumentActions'
+import { FiUser } from 'react-icons/fi'
 
 export const columns = (onClick, setTableRow) => [
   {
@@ -38,115 +39,60 @@ export const columns = (onClick, setTableRow) => [
         row={row}
         onClick={onClick}
         setTableRow={(row) => setTableRow(row)}
+        show={true}
       />
     ),
   },
 ]
+export const userColumns = (onClick, setTableRow) => [
+  {
+    name: 'User',
+    selector: (row) => row.firstName,
+    sortable: true,
+    cell: (row) => (
+      <p className=" text-base text-[#1a1a1ab8] flex items-center gap-2">
+        <span className="text-highlight text-3xl">
+          {row.imageUrl ? row.imageUrl : <FiUser />}
+        </span>
+        <span className="flex items-center gap-1 capitalize">
+          {row.firstName} {row.lastName}
+        </span>
+      </p>
+    ),
+  },
 
-export const data = [
   {
-    id: 1,
-    documentName: 'Transport Document1',
-    documentType: 'PDF',
-    documentDate: '06/09/2022, 22:02',
-    staff: 'Dr Tolu Bolawa',
+    name: 'Email',
+    selector: (row) => row.email,
+    sortable: true,
+    // grow: 2,
+    minWidth: '280px',
+    cell: (row) => <p className=" text-base text-[#1a1a1ab8]">{row.email}</p>,
   },
   {
-    id: 2,
-    documentName: 'Transport Document3',
-    documentType: 'PDF',
-    documentDate: '06/09/2022, 22:02',
-    staff: 'Dr Tolu Bolawa',
+    name: 'Phone Number',
+    selector: (row) => row.phoneNumber,
+    sortable: true,
+    cell: (row) => (
+      <p className=" text-base text-[#1a1a1ab8]">{row.phoneNumber}</p>
+    ),
   },
   {
-    id: 3,
-    documentName: 'Transport Document4',
-    documentType: 'PDF',
-    documentDate: '06/09/2022, 22:02',
-    staff: 'Dr Tolu Bolawa',
+    name: 'Address',
+    selector: (row) => row.address,
+    sortable: true,
+    cell: (row) => <p className=" text-base text-[#1a1a1ab8]">{row.address}</p>,
   },
   {
-    id: 4,
-    documentName: 'Transport Document5',
-    documentType: 'PDF',
-    documentDate: '06/09/2022, 22:02',
-    staff: 'Dr Tolu Bolawa',
-  },
-  {
-    id: 5,
-    documentName: 'Transport Document6',
-    documentType: 'PDF',
-    documentDate: '06/09/2022, 22:02',
-    staff: 'Dr Tolu Bolawa',
-  },
-  {
-    id: 6,
-    documentName: 'Transport Document7',
-    documentType: 'PDF',
-    documentDate: '06/09/2022, 22:02',
-    staff: 'Dr Tolu Bolawa',
-  },
-  {
-    id: 7,
-    documentName: 'Transport Document',
-    documentType: 'PDF',
-    documentDate: '06/09/2022, 22:02',
-    staff: 'Dr Tolu Bolawa',
-  },
-  {
-    id: 8,
-    documentName: 'Transport Document8',
-    documentType: 'PDF',
-    documentDate: '06/09/2022, 22:02',
-    staff: 'Dr Tolu Bolawa',
-  },
-  {
-    id: 9,
-    documentName: 'Transport Document9',
-    documentType: 'PDF',
-    documentDate: '06/09/2022, 22:02',
-    staff: 'Dr Tolu Bolawa',
-  },
-  {
-    id: 10,
-    documentName: 'Transport Document10',
-    documentType: 'PDF',
-    documentDate: '06/09/2022, 22:02',
-    staff: 'Dr Tolu Bolawa',
-  },
-  {
-    id: 11,
-    documentName: 'Transport Document11',
-    documentType: 'PDF',
-    documentDate: '06/09/2022, 22:02',
-    staff: 'Dr Tolu Bolawa',
-  },
-  {
-    id: 12,
-    documentName: 'Transport Document12',
-    documentType: 'PDF',
-    documentDate: '06/09/2022, 22:02',
-    staff: 'Dr Tolu Bolawa',
-  },
-  {
-    id: 13,
-    documentName: 'Transport Document13',
-    documentType: 'PDF',
-    documentDate: '06/09/2022, 22:02',
-    staff: 'Dr Tolu Bolawa',
-  },
-  {
-    id: 14,
-    documentName: 'Transport Document14',
-    documentType: 'PDF',
-    documentDate: '06/09/2022, 22:02',
-    staff: 'Dr Tolu Bolawa',
-  },
-  {
-    id: 15,
-    documentName: 'Transport Document15',
-    documentType: 'PDF',
-    documentDate: '06/09/2022, 22:02',
-    staff: 'Dr Tolu Bolawa',
+    name: 'Actions',
+    center: true,
+    allowOverflow: true,
+    cell: (row) => (
+      <DocumentActions
+        row={row}
+        onClick={onClick}
+        setTableRow={(row) => setTableRow(row)}
+      />
+    ),
   },
 ]

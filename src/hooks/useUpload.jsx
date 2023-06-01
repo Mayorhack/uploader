@@ -44,7 +44,16 @@ const useUpload = () => {
       return response
     },
     {
-      onSuccess: () => successAlert('Document Uploaded successfuly'),
+      onSuccess: () => {
+        successAlert('Document Uploaded successfuly')
+        setUploadData({
+          emailAddress: '',
+          documentName: '',
+          creationDate: null,
+          staff: '',
+        })
+        setImages([])
+      },
     }
   )
   const handleChange = function (e) {
@@ -54,12 +63,12 @@ const useUpload = () => {
     setUploadData((prev) => {
       return { ...prev, [name]: value }
     })
-    console.log(images)
   }
   const handleSubmit = function (e) {
     e.preventDefault()
 
     mutateFile.mutate()
+    console.log(mutateFile)
   }
   return {
     uploadData,

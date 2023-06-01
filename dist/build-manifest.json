@@ -29,11 +29,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/dashboard/documents.js"
-    ],
-    "/dashboard/documents/[pid]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/dashboard/documents/[pid].js"
     ]
   },
   "ampFirstPages": []
