@@ -1,4 +1,5 @@
 import DocumentActions from '@/components/DocumentActions'
+import Image from 'next/image'
 import { FiUser } from 'react-icons/fi'
 
 export const columns = (onClick, setTableRow) => [
@@ -49,10 +50,15 @@ export const userColumns = (onClick, setTableRow) => [
     name: 'User',
     selector: (row) => row.firstName,
     sortable: true,
+    minWidth: '180px',
     cell: (row) => (
       <p className=" text-base text-[#1a1a1ab8] flex items-center gap-2">
         <span className="text-highlight text-3xl">
-          {row.imageUrl ? row.imageUrl : <FiUser />}
+          {row.imageUrl ? (
+            <Image src={row.imageUrl} alt="user" width={20} height={20} />
+          ) : (
+            <FiUser />
+          )}
         </span>
         <span className="flex items-center gap-1 capitalize">
           {row.firstName} {row.lastName}
