@@ -18,8 +18,8 @@ export const data = [
   },
   {
     id: 2,
-    title: 'Reminder',
-    link: '/dashboard/reminder',
+    title: 'Calendar',
+    link: '/dashboard/calendar',
     logo: <MdOutlineNotificationsActive size={24} />,
   },
   {
