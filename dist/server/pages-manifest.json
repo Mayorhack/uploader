@@ -1,8 +1,0 @@
-{
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/dashboard/calendar": "pages/dashboard/calendar.js",
-  "/dashboard/calendar/create": "pages/dashboard/calendar/create.js",
-  "/dashboard/upload": "pages/dashboard/upload.js"
-}
