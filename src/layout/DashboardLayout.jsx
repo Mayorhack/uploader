@@ -35,14 +35,14 @@ const DashboardLayout = ({ children }) => {
         )
       ) : (
         <div className="bg-gray-400 opacity-75 h-screen w-screen grid place-items-center">
-          <div class="loader">
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
-            <div class="loader-square"></div>
+          <div className="loader">
+            <div className="loader-square"></div>
+            <div className="loader-square"></div>
+            <div className="loader-square"></div>
+            <div className="loader-square"></div>
+            <div className="loader-square"></div>
+            <div className="loader-square"></div>
+            <div className="loader-square"></div>
           </div>
         </div>
       )}

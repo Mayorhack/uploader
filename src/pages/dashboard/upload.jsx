@@ -18,6 +18,7 @@ const Upload = () => {
     images,
     setImages,
     setUploadData,
+    mutateFile,
   } = useUpload()
 
   return (
@@ -93,7 +94,9 @@ const Upload = () => {
       </form>
       <div className=" flex gap-8 justify-center">
         <Button variant="outlined">Cancel</Button>
-        <Button onClick={handleSubmit}>Upload</Button>
+        <Button onClick={handleSubmit} loading={mutateFile.isLoading}>
+          Upload
+        </Button>
       </div>
     </Card>
   )

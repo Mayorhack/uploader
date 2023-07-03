@@ -2,13 +2,12 @@ import Card from '@/components/Card'
 import Table from '@/components/tables/Table'
 import { userColumns } from '@/data/tableData'
 // import useAddUsers from '@/hooks/useUsers'
-import { useState } from 'react'
-import Button from '@/components/Button'
 
+import Button from '@/components/Button'
 import Overlay from '@/components/Overlay'
 import { FiTrash2 } from 'react-icons/fi'
 import FormInput from '@/components/forms/FormInput'
-import useDelete from '@/hooks/useDelete'
+
 import { useQuery } from '@tanstack/react-query'
 import { publicFetch } from '@/utilities/fetchFunction'
 import MySelect from '@/components/forms/MySelect'
@@ -21,20 +20,7 @@ const Users = () => {
       url: 'dashboard/admin/getallusers',
     })
   })
-  const [showDeleteModal, setShowDeleteModal] = useState(false)
-  const [showAddUsersModal, setAddUsersModal] = useState(false)
-  const [tableRow, setGetTableRow] = useState('')
 
-  const deleteUser = () => {
-    setShowDeleteModal(true)
-  }
-  const confirmDelete = () => {
-    deleteMutation.mutate()
-  }
-  const deleteMutation = useDelete(
-    `Dashboard/Admin/DeleteAUser?id=${tableRow.id}`,
-    'User'
-  )
   const {
     userData,
     handleChange,
@@ -42,6 +28,14 @@ const Users = () => {
     setUserData,
     error,
     mutateFile,
+    setAddUsersModal,
+    setGetTableRow,
+    deleteUser,
+    showDeleteModal,
+    setShowDeleteModal,
+    tableRow,
+    confirmDelete,
+    showAddUsersModal,
   } = useAddUsers()
   return (
     <div>
@@ -169,7 +163,9 @@ const Users = () => {
                 htmlFor="profile-image"
                 className="block text-center border border-slate-300 rounded-lg w-full p-2 bg-[#ADD8E6] text-white"
               >
-                Choose Profile Picture
+                {userData.image
+                  ? userData.image.name
+                  : 'Choose Profile Picture'}
               </label>
               <input
                 type="file"
@@ -195,13 +191,7 @@ const Users = () => {
               >
                 Cancel
               </Button>
-              <Button
-                onClick={() => {
-                  handleSubmit()
-                  mutateFile.isSuccess ? showAddUsersModal(false) : null
-                }}
-                loading={mutateFile.isLoading}
-              >
+              <Button onClick={handleSubmit} loading={mutateFile.isLoading}>
                 Submit
               </Button>
             </div>

@@ -11,7 +11,7 @@ const useCreateCalendar = () => {
     location: '',
     description: '',
     startDateTime: new Date(),
-    endDateTime: '',
+    endDateTime: new Date(),
     AttendeeEmail: '',
     popopReminder: '',
   })
@@ -30,7 +30,7 @@ const useCreateCalendar = () => {
       calendarFormData.append('Location', 'Lagos')
       calendarFormData.append(
         'EndDateTime',
-        dayjs(calendarDetails.startDateTime.toISOString()).format(
+        dayjs(calendarDetails.endDateTime.toISOString()).format(
           'YYYY-MM-DDTHH:mm'
         )
       )
@@ -48,6 +48,15 @@ const useCreateCalendar = () => {
     {
       onSuccess: () => {
         successAlert('Done')
+        setCalendarDetails({
+          summary: '',
+          location: '',
+          description: '',
+          startDateTime: new Date(),
+          endDateTime: new Date(),
+          AttendeeEmail: '',
+          popopReminder: '',
+        })
       },
     }
   )
@@ -58,16 +67,22 @@ const useCreateCalendar = () => {
       return { ...prev, [name]: value }
     })
   }
-  const handleDateChange = (date) =>
+  const handleDateChange = (date, name) =>
     setCalendarDetails((prev) => {
-      console.log(date.toISOString())
-
-      return { ...prev, startDateTime: date }
+      return { ...prev, [name]: date }
     })
-  const handleSubmit = function () {
+  const handleSubmit = function (e) {
+    e.preventDefault()
     calendarMutate.mutate()
   }
-  return { calendarDetails, handleChange, handleDateChange, handleSubmit }
+  const loading = calendarMutate.isLoading
+  return {
+    calendarDetails,
+    handleChange,
+    handleDateChange,
+    handleSubmit,
+    loading,
+  }
 }
 
 export default useCreateCalendar

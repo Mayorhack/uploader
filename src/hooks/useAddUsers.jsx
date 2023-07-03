@@ -1,12 +1,12 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { publicFetch } from '@/utilities/fetchFunction'
 import { useState } from 'react'
 import { successAlert } from '@/utilities/sweetAlert'
 import FormData from 'form-data'
+import useDelete from './useDelete'
 const useAddUsers = () => {
   const formData = new FormData()
   const pattern = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[a-zA-Z0-9]).*$/
-
   const [userData, setUserData] = useState({
     firstName: '',
     lastName: '',
@@ -19,6 +19,22 @@ const useAddUsers = () => {
     confirmUserPassword: '',
     image: '',
   })
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [showAddUsersModal, setAddUsersModal] = useState(false)
+  const [tableRow, setGetTableRow] = useState('')
+
+  const deleteUser = () => {
+    setShowDeleteModal(true)
+  }
+  const confirmDelete = () => {
+    deleteMutation.mutate()
+  }
+  const deleteMutation = useDelete(
+    `Dashboard/Admin/DeleteAUser?id=${tableRow.id}`,
+    'User',
+    () => setShowDeleteModal(false)
+  )
+  const queryClient = useQueryClient()
   const [error, setError] = useState({ state: false, message: '' })
   const mutateFile = useMutation(
     async () => {
@@ -45,6 +61,8 @@ const useAddUsers = () => {
     {
       onSuccess: () => {
         successAlert('User Created successfuly')
+        queryClient.invalidateQueries(['users'])
+        setAddUsersModal(false)
         setUserData({
           firstName: '',
           lastName: '',
@@ -102,6 +120,14 @@ const useAddUsers = () => {
     handleSubmit,
     error,
     mutateFile,
+    setAddUsersModal,
+    showAddUsersModal,
+    showDeleteModal,
+    setGetTableRow,
+    deleteUser,
+    confirmDelete,
+    setShowDeleteModal,
+    tableRow,
   }
 }
 

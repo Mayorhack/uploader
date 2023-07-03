@@ -172,11 +172,11 @@
 .loader-square:nth-of-type(7) {
   animation-delay: -10s;
 }
-.loader {
+.loader-async {
   border: 4px solid rgba(0, 0, 0, 0.1);
-  border-left-color: transparent;
-  width: 36px;
-  height: 36px;
+  border-left-color: #fff;
+  width: 20px;
+  height: 20px;
   animation: spin89345 1s linear infinite;
   border-radius: 50%;
 }
@@ -212,7 +212,7 @@
 }
 .full-display .react-datepicker__day-name,
 .full-display .react-datepicker__day {
-  width: 50px !important;
+  width: 40px !important;
 }
 .react-datepicker__navigation--next--with-time:not(
     .react-datepicker__navigation--next--with-today-button
@@ -239,4 +239,10 @@
   .react-datepicker__time
   .react-datepicker__time-box {
   width: 120px !important;
+}
+.react-datepicker__input-container .react-datepicker__calendar-icon {
+  padding: 0;
+  top: 30%;
+  left: 5px;
+  @apply fill-highlight;
 }

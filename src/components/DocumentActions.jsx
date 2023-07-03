@@ -16,7 +16,7 @@ const DocumentActions = ({ row, onClick, setTableRow, show }) => {
           <FiDownload size={'20px'} />
         </>
       ) : null}
-      <FiTrash2 size={'20px'} onClick={handleClick} />
+      <FiTrash2 size={'20px'} onClick={handleClick} className="text-pink-600" />
     </div>
   )
 }
