@@ -8,44 +8,44 @@ import 'react-big-calendar/lib/css/react-big-calendar.css'
 
 import timezone from 'dayjs/plugin/timezone'
 import dayjs from 'dayjs'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 dayjs.extend(timezone)
 const djLocalizer = dayjsLocalizer(dayjs)
 const DragAndDropCalendar = withDragAndDrop(BigCalendar)
 
-const events = [
-  {
-    id: 0,
-    title: 'Board meeting',
-    start: new Date(2018, 0, 29, 9, 0, 0),
-    end: new Date(2018, 0, 29, 13, 0, 0),
-  },
-  {
-    id: 1,
-    title: 'MS training',
-    allDay: true,
-    start: new Date(2018, 0, 29, 14, 0, 0),
-    end: new Date(2018, 0, 29, 16, 30, 0),
-  },
-  {
-    id: 2,
-    title: 'Team lead meeting',
-    start: new Date(2018, 0, 29, 8, 30, 0),
-    end: new Date(2018, 0, 29, 12, 30, 0),
-  },
-  {
-    id: 11,
-    title: 'Birthday Party',
-    start: new Date(2018, 0, 30, 7, 0, 0),
-    end: new Date(2018, 0, 30, 10, 30, 0),
-  },
-  {
-    id: 12,
-    title: 'Birthday Party',
-    start: new Date(2018, 0, 31, 7, 0, 0),
-    end: new Date(2018, 0, 31, 10, 30, 0),
-  },
-]
+// const events = [
+//   {
+//     id: 0,
+//     title: 'Board meeting',
+//     start: new Date(2018, 0, 29, 9, 0, 0),
+//     end: new Date(2018, 0, 29, 13, 0, 0),
+//   },
+//   {
+//     id: 1,
+//     title: 'MS training',
+//     allDay: true,
+//     start: new Date(2018, 0, 29, 14, 0, 0),
+//     end: new Date(2018, 0, 29, 16, 30, 0),
+//   },
+//   {
+//     id: 2,
+//     title: 'Team lead meeting',
+//     start: new Date(2018, 0, 29, 8, 30, 0),
+//     end: new Date(2018, 0, 29, 12, 30, 0),
+//   },
+//   {
+//     id: 11,
+//     title: 'Birthday Party',
+//     start: new Date(2018, 0, 30, 7, 0, 0),
+//     end: new Date(2018, 0, 30, 10, 30, 0),
+//   },
+//   {
+//     id: 12,
+//     title: 'Birthday Party',
+//     start: new Date(2018, 0, 31, 7, 0, 0),
+//     end: new Date(2018, 0, 31, 10, 30, 0),
+//   },
+// ]
 
 const styles = {
   container: {
@@ -55,8 +55,12 @@ const styles = {
   },
 }
 
-export default function CustomCalendar() {
-  const [myEvents, setMyEvents] = useState(events)
+export default function CustomCalendar({ event }) {
+  const [myEvents, setMyEvents] = useState([])
+  useEffect(() => {
+    setMyEvents(event)
+  }, [event])
+
   const moveEvent = useCallback(
     ({ event, start, end, isAllDay: droppedOnAllDaySlot = false }) => {
       const { allDay } = event
@@ -91,7 +95,7 @@ export default function CustomCalendar() {
         defaultView={Views.MONTH}
         views={[Views.DAY, Views.WEEK, Views.MONTH]}
         steps={60}
-        defaultDate={new Date(2018, 0, 29)}
+        defaultDate={new Date()}
         onEventDrop={moveEvent}
         onEventResize={resizeEvent}
       />

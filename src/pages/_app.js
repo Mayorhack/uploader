@@ -3,7 +3,7 @@ import '@/styles/globals.css'
 import { errorResponse } from '@/utilities/errorResponse'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ToastContainer } from 'react-toastify'
-
+import 'react-datepicker/dist/react-datepicker.css'
 const client = new QueryClient({
   defaultOptions: {
     queries: {

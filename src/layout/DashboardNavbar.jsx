@@ -7,13 +7,17 @@ import { FaUser } from 'react-icons/fa'
 import { AiFillSetting } from 'react-icons/ai'
 import { HiOutlineLogout } from 'react-icons/hi'
 import useLogout from '@/hooks/useLogout'
+import { MdChevronLeft } from 'react-icons/md'
 const DashboardNavbar = () => {
   const [menu, setMenu] = useState(false)
   const router = useRouter()
   const { logoutMutate } = useLogout()
   return (
     <div className="flex justify-between w-full bg-white shadow-sm px-2 md:px-4 py-2 rounded-2xl items-center">
-      <h2 className="uppercase text-2xl font-medium ml-6">
+      <h2 className="uppercase text-2xl font-medium ml-4 flex items-center">
+        {router.pathname.includes('create') ? (
+          <MdChevronLeft onClick={() => router.back()} size={'28px'} />
+        ) : null}
         {router.pathname.split('/')[2]}
       </h2>
       <div className="flex flex-col items-center relative ">

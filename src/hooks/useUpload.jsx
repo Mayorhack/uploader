@@ -31,7 +31,9 @@ const useUpload = () => {
           uploadData.creationDate.toISOString()
         )
       formData.append('Document.Staff', uploadData.staff)
-      formData.append('Files', images[0])
+      images.forEach((item) => {
+        formData.append('Files', item)
+      })
 
       const response = await publicFetch.request({
         url: '/Dashboard/Document/Upsert',
