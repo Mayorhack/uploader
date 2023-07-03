@@ -47,7 +47,7 @@ const Sidebar = () => {
             ))}
           </div>
           <p
-            className="mt-80  px-4 py-2 flex gap-8"
+            className="mt-10 px-4 py-2 flex gap-8"
             onClick={() => logoutMutate.mutate()}
           >
             <MdLogout size={24} />

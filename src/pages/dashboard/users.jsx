@@ -200,6 +200,7 @@ const Users = () => {
                   handleSubmit()
                   mutateFile.isSuccess ? showAddUsersModal(false) : null
                 }}
+                loading={mutateFile.isLoading}
               >
                 Submit
               </Button>
