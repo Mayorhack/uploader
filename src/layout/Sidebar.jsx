@@ -16,7 +16,7 @@ const Sidebar = () => {
   return (
     <>
       <HiMenu
-        className="lg:hidden absolute w-8 h-8 left-2 top-9"
+        className="lg:hidden absolute w-8 h-8 left-5 top-9"
         onClick={() => setMenu(true)}
       />
       <div

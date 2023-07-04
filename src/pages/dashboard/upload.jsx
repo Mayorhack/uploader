@@ -23,8 +23,8 @@ const Upload = () => {
 
   return (
     <Card className=" p-8 mt-8">
-      <form action="" className="flex flex-col md:flex-row items-center">
-        <div className="w-full p-5 space-y-6">
+      <form action="" className="flex flex-col gap-5 md:flex-row items-center">
+        <div className="w-full space-y-6">
           <FormInput
             label={'Document Name'}
             name="documentName"
@@ -56,7 +56,7 @@ const Upload = () => {
         <div className="w-full h-[260px] border-2 border-dashed rounded-3xl">
           <div className="min-h-[210px]" {...getRootProps()}>
             <input className=" w-full " {...getInputProps()} />
-            <div className=" min-h-[210px] flex justify-center items-center flex-col">
+            <div className=" min-h-[210px] flex justify-center items-center p-2 text-center flex-col">
               <Image src={uploadIcon} alt="upload icon" />
               {isDragActive ? (
                 <p className="">Release to drop the files here</p>
@@ -70,7 +70,7 @@ const Upload = () => {
             </div>
           </div>
           {images.length ? (
-            <div className="flex justify-between px-2 p ">
+            <div className="flex justify-between px-2  ">
               <div className="gap-1 flex items-center">
                 {images.map((item) => (
                   <p
@@ -92,7 +92,7 @@ const Upload = () => {
           ) : null}
         </div>
       </form>
-      <div className=" flex gap-8 justify-center">
+      <div className=" flex gap-8 justify-center mt-4">
         <Button variant="outlined">Cancel</Button>
         <Button onClick={handleSubmit} loading={mutateFile.isLoading}>
           Upload
