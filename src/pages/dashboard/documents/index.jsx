@@ -23,12 +23,12 @@ const Document = () => {
   }
   const deleteMutation = useDelete(
     `/Dashboard/Document/Delete?id=${tableRow.id}`,
-    'Document'
+    'Document',
+    () => setShowDeleteModal(false)
   )
 
   const confirmDelete = () => {
     deleteMutation.mutate()
-    deleteMutation.isSuccess ? setShowDeleteModal(false) : null
   }
 
   return (

@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
 import { publicFetch } from '@/utilities/fetchFunction'
 import { successAlert } from '@/utilities/sweetAlert'
-const useDelete = (url, succesMessage) => {
+const useDelete = (url, succesMessage, action) => {
   const deleteMutation = useMutation(
     () =>
       publicFetch.request({
@@ -9,7 +9,10 @@ const useDelete = (url, succesMessage) => {
         url: url,
       }),
     {
-      onSuccess: () => successAlert(`${succesMessage} deleted successfully`),
+      onSuccess: () => {
+        successAlert(`${succesMessage} deleted successfully`)
+        action()
+      },
     }
   )
   return deleteMutation

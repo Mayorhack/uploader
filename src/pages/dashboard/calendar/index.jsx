@@ -25,7 +25,7 @@ const Reminder = () => {
     }
   )
 
-  const eventList = data?.data.items.map((item, i) => {
+  const eventList = data?.data.items?.map((item, i) => {
     return {
       id: i,
       title: item.summary,

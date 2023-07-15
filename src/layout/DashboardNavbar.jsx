@@ -14,7 +14,7 @@ const DashboardNavbar = () => {
   const { logoutMutate } = useLogout()
   return (
     <div className="flex justify-between w-full bg-white shadow-sm px-2 md:px-4 py-2 rounded-2xl items-center">
-      <h2 className="uppercase text-2xl font-medium ml-4 flex items-center">
+      <h2 className="uppercase text-2xl font-medium ml-8 lg:ml-4 flex items-center">
         {router.pathname.includes('create') ? (
           <MdChevronLeft onClick={() => router.back()} size={'28px'} />
         ) : null}

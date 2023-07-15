@@ -16,7 +16,7 @@ const Sidebar = () => {
   return (
     <>
       <HiMenu
-        className="lg:hidden absolute w-8 h-8 left-2 top-9"
+        className="lg:hidden absolute w-8 h-8 left-5 top-9"
         onClick={() => setMenu(true)}
       />
       <div
@@ -47,7 +47,7 @@ const Sidebar = () => {
             ))}
           </div>
           <p
-            className="mt-80  px-4 py-2 flex gap-8"
+            className="mt-10 px-4 py-2 flex gap-8"
             onClick={() => logoutMutate.mutate()}
           >
             <MdLogout size={24} />

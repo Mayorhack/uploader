@@ -82,6 +82,7 @@ const useUpload = () => {
     isDragActive,
     images,
     setImages,
+    mutateFile,
   }
 }
 

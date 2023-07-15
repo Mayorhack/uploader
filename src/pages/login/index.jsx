@@ -5,7 +5,7 @@ import AuthLayout from '@/layout/AuthLayout'
 
 import useLogin from '@/hooks/useLogin'
 const Login = () => {
-  const [email, password, handleChange, handleSubmit] = useLogin()
+  const [email, password, handleChange, handleSubmit, loading] = useLogin()
   return (
     <AuthLayout>
       <h2 className="text-4xl my-6 font-medium ">Welcome</h2>
@@ -28,7 +28,11 @@ const Login = () => {
         />
       </div>
 
-      <Button className={'my-6 w-full'} onClick={handleSubmit}>
+      <Button
+        className={'my-6 w-full'}
+        onClick={handleSubmit}
+        loading={loading}
+      >
         Login
       </Button>
       <div className="uppercase my-4 flex justify-between items-center">
