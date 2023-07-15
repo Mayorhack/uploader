@@ -15,6 +15,7 @@ const FormInput = ({
           htmlFor=""
           className={`absolute left-3  top-1/2
         -translate-y-1/2 
+      
         group-focus-within:bg-white
         group-focus-within:translate-y-[-200%]
         group-focus-within:px-1 
@@ -22,7 +23,7 @@ const FormInput = ({
          leading-none
         group-focus-within:scale-90   duration-300 text-[#BDC0CC] ${
           value
-            ? 'translate-y-[-200%] text-highlight  scale-90 px-1 bg-white'
+            ? 'translate-y-[-200%]  text-highlight  scale-90 px-1 bg-white'
             : ''
         } ${error ? ' text-red-400' : ''}`}
         >

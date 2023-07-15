@@ -1,10 +1,9 @@
 import Card from '@/components/Card'
 import Table from '@/components/tables/Table'
 import { userColumns } from '@/data/tableData'
-// import useAddUsers from '@/hooks/useUsers'
+
 import { useState } from 'react'
 import Button from '@/components/Button'
-
 import Overlay from '@/components/Overlay'
 import { FiTrash2 } from 'react-icons/fi'
 import FormInput from '@/components/forms/FormInput'
@@ -196,8 +195,8 @@ const Users = () => {
                 Cancel
               </Button>
               <Button
-                onClick={() => {
-                  handleSubmit()
+                onClick={(e) => {
+                  handleSubmit(e)
                   mutateFile.isSuccess ? showAddUsersModal(false) : null
                 }}
               >
