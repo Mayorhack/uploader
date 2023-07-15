@@ -6,6 +6,7 @@ import Card from '@/components/Card'
 
 import Image from 'next/image'
 import useUpload from '@/hooks/useUpload'
+import Overlay from '@/components/Overlay'
 
 const Upload = () => {
   const {
@@ -98,6 +99,7 @@ const Upload = () => {
           Upload
         </Button>
       </div>
+      <Overlay></Overlay>
     </Card>
   )
 }
